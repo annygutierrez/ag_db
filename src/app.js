@@ -30,4 +30,7 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
 });
 
 // Listen
-app.listen(3002);
+app.set('port', process.env.PORT || 3002);
+app.listen(app.get('port'), () => {
+  console.log('Server on port', app.get('port'));
+});
